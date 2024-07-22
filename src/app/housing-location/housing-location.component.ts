@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {HousingLocation} from "../housinglocation";
 import {RouterLink, RouterOutlet} from "@angular/router";
 
@@ -7,14 +7,15 @@ import {RouterLink, RouterOutlet} from "@angular/router";
   selector: 'app-housing-location',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgOptimizedImage
   ],
   template: `
     <section class="listing">
       <img
         class="listing-photo"
-        [src]="housingLocation.photo"
-        alt="Exterior photo of {{ housingLocation.name }}"
+        [src]="housingLocation?.photo"
+        alt="Exterior photo of {{ housingLocation?.name }}"
         crossorigin
       />
       <h2 class="listing-heading">{{ housingLocation.name }}</h2>
